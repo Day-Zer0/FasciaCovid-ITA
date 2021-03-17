@@ -6,7 +6,12 @@ from bs4 import BeautifulSoup
 
 govUrl = 'http://www.salute.gov.it/portale/nuovocoronavirus/dettaglioContenutiNuovoCoronavirus.jsp?area=nuovoCoronavirus^&id=5351^&lingua=italiano^&menu=vuoto'
 govData = requests.get(govUrl)
-govData = BeautifulSoup(govData.content, 'html.parser')
+
+if govData.status_code != 200:
+    print('Errore. La pagina ha risposto con il codice ' + str(govData.status_code) + '. Termino l\'esecuzione.')
+    raise SystemExit
+else:
+    govData = BeautifulSoup(govData.content, 'html.parser')
 
 regioniArr = {}
 
