@@ -15,19 +15,19 @@ else:
 
 regioniArr = {}
 
-regioniBianche = govData.find('div', attrs={'style' : 'text-align:center;padding:10px;border: 1px solid #000;border-top:0;font-size:17px;'}).get_text(separator="\n").strip()
+regioniBianche = govData.find('div', style=re.compile(r'border: 1px solid #000*?')).get_text(separator="\n").strip()
 regioniBianche = regioniBianche.split('\n')
 regioniArr['regioniBianche'] = list(map(str.strip, filter(None, regioniBianche)))
 
-regioniGialle = govData.find('div', style=re.compile(r'background-color:#fff7bd*?')).get_text(separator="\n").strip()
+regioniGialle = govData.find('div', style=re.compile(r'border: 1px solid #f8c300*?')).get_text(separator="\n").strip()
 regioniGialle = regioniGialle.split('\n')
 regioniArr['regioniGialle'] = list(map(str.strip, filter(None, regioniGialle)))
 
-regioniArancioni = govData.find('div', style=re.compile(r'background-color:#ffecd7*?')).get_text(separator="\n").strip()
+regioniArancioni = govData.find('div', style=re.compile(r'border: 1px solid #e78314*?')).get_text(separator="\n").strip()
 regioniArancioni = regioniArancioni.split('\n')
 regioniArr['regioniArancioni'] = list(map(str.strip, filter(None, regioniArancioni)))
 
-regioniRosse = govData.find('div', style=re.compile(r'background-color:#f7e4e5*?')).get_text(separator="\n").strip()
+regioniRosse = govData.find('div', style=re.compile(r'border: 1px solid #dd222a*?')).get_text(separator="\n").strip()
 regioniRosse = regioniRosse.split('\n')
 regioniArr['regioniRosse'] = list(map(str.strip, filter(None, regioniRosse)))
 
