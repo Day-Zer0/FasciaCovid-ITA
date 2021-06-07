@@ -15,7 +15,7 @@ else:
 
 regioniArr = {}
 
-regioniBianche = govData.find('div', style=re.compile(r'border: 1px solid #000*?')).get_text(separator="\n").strip()
+regioniBianche = govData.find('div', style=re.compile(r'border: 1px solid #000;border-top:0*?')).get_text(separator="\n").strip()
 regioniBianche = regioniBianche.split('\n')
 regioniArr['regioniBianche'] = list(map(str.strip, filter(None, regioniBianche)))
 
